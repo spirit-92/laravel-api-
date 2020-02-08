@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Jenssegers\Agent\Agent;
-use Illuminate\Http\RedirectResponse;
+
 
 class RouteBrandController extends Controller
 {
@@ -17,11 +16,12 @@ class RouteBrandController extends Controller
      */
     public function index(Agent $agent)
     {
+
         if ($agent->isAndroidOS()) {
-            return new RedirectResponse("https://www.google.com/");
+            return redirect('https://www.google.com/');
         }
         if ($agent->isIOS()) {
-            return new RedirectResponse("https://www.apple.com/");
+            return redirect('https://www.apple.com/');
         } else {
             echo '<h1>Версия для ПК не поддерживается</h1>';
         }
