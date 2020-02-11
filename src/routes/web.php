@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', 'RouteBrandController@index')->name('brandRoute');
+Route::get('/Android', 'RouteBrandController@index')->name('brandRoute');
