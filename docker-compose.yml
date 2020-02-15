@@ -8,7 +8,7 @@ services:
       context: docker/php
     working_dir: "/var/www/app"
     environment:
-      XDEBUG_CONFIG: "remote_host=192.168.222.1 remote_enable=1"
+      XDEBUG_CONFIG: "remote_host=192.168.224.1 remote_enable=1"
       PHP_IDE_CONFIG: "serverName=Docker"
     networks:
       - internal
@@ -76,4 +76,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.223.0/28
+        - subnet: 192.168.224.0/28
