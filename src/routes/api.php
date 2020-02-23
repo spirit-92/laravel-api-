@@ -16,7 +16,12 @@ use Illuminate\Http\Request;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-Route::get('/user', function () {
-    return response('Hello World', 200);
-
-});
+//Route::post('/user', function (Request $request) {
+//    $content = json_decode($request->getContent());
+//
+//   return response([
+//       "body"=>$content
+//   ],200);
+//});
+Route::get('/user','ValidationController@store')->name('userValid');
+Route::post('/registration','ValidationController@save')->name('registrationUser');
