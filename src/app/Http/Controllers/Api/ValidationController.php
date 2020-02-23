@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\AddUserValidate;
 use App\Http\Requests\RegistrationValidate;
 use Illuminate\Http\Request;
 use App\Services\RegistrationUserService;
+
+use App\Http\Controllers\Controller;
 
 class ValidationController extends Controller
 {

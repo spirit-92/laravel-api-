@@ -84,6 +84,8 @@
       <path value="$PROJECT_DIR$/src/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/src/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/src/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/src/vendor/barryvdh/laravel-cors" />
+      <path value="$PROJECT_DIR$/src/vendor/asm89/stack-cors" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

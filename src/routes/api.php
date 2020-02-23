@@ -23,5 +23,6 @@ use Illuminate\Http\Request;
 //       "body"=>$content
 //   ],200);
 //});
-Route::get('/user','ValidationController@store')->name('userValid');
-Route::post('/registration','ValidationController@save')->name('registrationUser');
+Route::get('/user','Api\ValidationController@store')->name('userValid');
+Route::post('/registration','Api\ValidationController@save')->name('registrationUser');
+Route::post('/authorise','Api\AuthoriseController@auth')->name('authoriseUser');
