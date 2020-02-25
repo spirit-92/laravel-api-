@@ -24,5 +24,9 @@ use Illuminate\Http\Request;
 //   ],200);
 //});
 Route::get('/user','Api\ValidationController@store')->name('userValid');
+Route::get('/GetUserValid','Api\AuthoriseController@authGet')->name('GetUserValid');
 Route::post('/registration','Api\ValidationController@save')->name('registrationUser');
 Route::post('/authorise','Api\AuthoriseController@auth')->name('authoriseUser');
+Route::middleware('auth_api')->group(function (){
+    Route::get('/userGet','Api\GetUserController@getUser')->name('userGet');
+});

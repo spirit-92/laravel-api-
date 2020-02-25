@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\AddUserValidate;
 use App\Http\Requests\RegistrationValidate;
+use App\Http\Requests\ValidateAvatarRequest;
+use App\Services\SaveAvatarServices;
 use Illuminate\Http\Request;
 use App\Services\RegistrationUserService;
 
@@ -11,6 +13,7 @@ use App\Http\Controllers\Controller;
 
 class ValidationController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -26,64 +29,17 @@ class ValidationController extends Controller
      *
      * @param AddUserValidate $request
      * @param RegistrationUserService $user
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function save(AddUserValidate $request, RegistrationUserService $user)
     {
         return  $user->registerUser($request);
     }
 
-
     public function store(RegistrationValidate $request)
     {
         return response()->json([
             'status'=>'success'
         ],200);
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -11,10 +11,13 @@ class RegistrationUserService
     public function registerUser(AddUserValidate  $request){
         $faker = Faker\Factory::create();
         $tokenGenerate = $faker->uuid();
+        $path = $request->file('image')->store("uploads/avatar/$request->name",'public');
+
         (new UserModel([
             'user_name'=>$request->name,
             'password'=>Hash::make($request->get('password')),
-            'email'=>$request->email
+            'email'=>$request->email,
+            'avatar'=> $path
         ]))->save();
 
         $user = UserModel::whereUserName($request->name)->first('user_id');

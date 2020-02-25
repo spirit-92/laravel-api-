@@ -21,7 +21,10 @@ public function auth(Request $request)
         return null;
     }
     if (!Hash::check($request->password, $user->password)) {
-        return null;
+        return response()->json([
+            'status'=>'error',
+            'body'=>'password invalid'
+        ],400);
     }
     $tokensUser = TokenModel::whereUserId($user['user_id'])->get()->count();
 
@@ -34,10 +37,14 @@ public function auth(Request $request)
             'user_id' => $user['user_id'],
             'token' => $token
         ]))->save();
-        return $token;
+        return response([
+            'token'=>$token
+        ],200);
     } else {
         $token = TokenModel::whereUserId($user['user_id'])->first();
-        return $token['token'];
+        return response([
+            'token'=>$token['token']
+        ],200);
     }
 
 }

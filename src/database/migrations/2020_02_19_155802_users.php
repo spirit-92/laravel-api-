@@ -35,6 +35,7 @@ class Users extends Migration
             $table->string('user_name',15)->unique();
             $table->string('password',60);
             $table->string('email',30)->unique();
+            $table->string('avatar',500)->nullable();
             $table->integer('status_id')->index()->default(2);;
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
