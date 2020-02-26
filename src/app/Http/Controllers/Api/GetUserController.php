@@ -12,7 +12,9 @@ class GetUserController extends Controller
     public function getUser(Request $request, GetUserServices $getUser)
     {
         $user = $getUser->getUser($request->header('token'));
-       var_dump($user);
+        return response()->json([
+            'user'=> $user
+        ],200);
     }
 
 

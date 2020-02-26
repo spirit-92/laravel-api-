@@ -13,6 +13,6 @@ class TokenModel extends Model
 
     public function user()
     {
-        return $this->hasOne('App\Model\UserModel', 'user_id');
+        return $this->hasOne('App\Model\UserModel', 'user_id','user_id');
     }
 }
