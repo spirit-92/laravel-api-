@@ -10,9 +10,10 @@ use App\Model\UserModel;
 class GetUserServices
 {
   public function getUser($token){
-      $userId = TokenModel::whereToken($token)->first();
-      $user = UserModel::whereUserId($userId['user_id'])->first();
-
+      $userId = TokenModel::whereToken($token)->first()->user;
+//      $user = UserModel::whereUserId($userId['user_id'])->first();
+      $user = TokenModel::whereToken($token)->first()->user;
       return $user;
+
   }
 }
