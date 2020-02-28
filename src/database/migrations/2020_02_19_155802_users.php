@@ -19,6 +19,14 @@ class Users extends Migration
             $table->string('token',64);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
+        Schema::create('news', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->integer('user_id')->index();
+            $table->string('title',200);
+            $table->text('body');
+            $table->string('img',200);
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+        });
         Schema::create('post', function (Blueprint $table) {
             $table->integer('post_id')->autoIncrement();
             $table->integer('user_id')->index();
@@ -41,6 +49,9 @@ class Users extends Migration
         });
 
         Schema::table('token', function($table) {
+            $table->foreign('user_id')->references('user_id')->on('users');
+        });
+        Schema::table('news', function($table) {
             $table->foreign('user_id')->references('user_id')->on('users');
         });
         Schema::table('users', function($table) {

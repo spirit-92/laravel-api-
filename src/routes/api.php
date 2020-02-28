@@ -28,5 +28,6 @@ Route::get('/GetUserValid','Api\AuthoriseController@authGet')->name('GetUserVali
 Route::post('/registration','Api\ValidationController@save')->name('registrationUser');
 Route::post('/authorise','Api\AuthoriseController@auth')->name('authoriseUser');
 Route::middleware('auth_api')->group(function (){
-    Route::get('/userGet','Api\GetUserController@getUser')->name('userGet');
+    Route::get('/userGet','Api\UserController@getUser')->name('userGet');
+    Route::post('/saveNews','Api\UserController@saveNews')->name('saveNews');
 });
