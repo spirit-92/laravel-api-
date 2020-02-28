@@ -18,7 +18,6 @@ class SaveNewsService
             'body'=>$request->body,
             'img'=> $request->img
         ]))->save();
-
         return response()->json([
             "status"=>"success"
         ],200);
