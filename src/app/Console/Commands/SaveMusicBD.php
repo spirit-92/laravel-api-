@@ -42,6 +42,7 @@ class SaveMusicBD extends Command
         $urlMusic = Storage::allFiles('public/uploads/musicAll');
         $fixUrls = str_replace('public', '/storage', $urlMusic);
         $title = str_replace('public/uploads/musicAll/', '', $urlMusic);
+        $title = str_replace('.mp3', '', $title);
         foreach ($fixUrls as $key=>$value) {
             (new AllMusicModel([
                 'url' => $value,

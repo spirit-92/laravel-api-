@@ -6,6 +6,7 @@ namespace App\Services;
 
 use App\Http\Requests\ValidateMusicRequest;
 use App\Model\AllMusicModel;
+use Illuminate\Support\Facades\Storage;
 
 class MusicServices
 {
@@ -22,11 +23,17 @@ class MusicServices
         return $musics;
     }
     public function saveMusic(ValidateMusicRequest $music){
-//        var_dump($_FILES['audio']['type'][0]);die();
-        foreach ($music->audio as $key=>$value){
 
-            $path = $value->storeAs("public/uploads/test/",$_FILES['audio']['name'][$key]);
-            var_dump($path);
+
+        foreach ($music->audio as $key=>$value){
+            $path = $value->storeAs("public/uploads/test",$_FILES['audio']['name'][$key]);
+            $title = str_replace('public/uploads/test/', '', $path);
+
+            var_dump($title);
+            (new AllMusicModel([
+                'url' => $path,
+                'title'=>$title = str_replace('.mp3', '', $path)
+            ]))->save();
         }
 
     }

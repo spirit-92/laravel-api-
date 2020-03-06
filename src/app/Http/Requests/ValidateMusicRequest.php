@@ -25,6 +25,7 @@ class ValidateMusicRequest extends FormRequest
     {
 
         return [
+            'audio' => 'required|array',
             'audio.*' => 'required|mimes:mpga,wav|max:20000'
         ];
 
