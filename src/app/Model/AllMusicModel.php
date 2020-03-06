@@ -4,10 +4,10 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NewsModel extends Model
+class AllMusicModel extends Model
 {
-    protected $table = 'news';
-    protected $fillable = ['user_id', 'title','body','img'];
+    protected $table = 'all_music';
+    protected $fillable = ['url','title'];
     public $timestamps = true;
     public $updated_at = false;
 }

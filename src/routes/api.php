@@ -29,5 +29,9 @@ Route::post('/registration','Api\ValidationController@save')->name('registration
 Route::post('/authorise','Api\AuthoriseController@auth')->name('authoriseUser');
 Route::middleware('auth_api')->group(function (){
     Route::get('/userGet','Api\UserController@getUser')->name('userGet');
+    Route::delete('/deleteNews','Api\UserController@deleteNews')->name('deleteNews');
     Route::post('/saveNews','Api\UserController@saveNews')->name('saveNews');
+    Route::get('/getNews','Api\UserController@getNews')->name('getNews');
+    Route::get('/allMusic','Api\UserController@getAllMusic')->name('allMusic');
+    Route::post('/saveMusic','Api\UserController@saveMusic')->name('saveMusic');
 });

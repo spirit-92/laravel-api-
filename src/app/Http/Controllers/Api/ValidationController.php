@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\AddUserValidate;
 use App\Http\Requests\RegistrationValidate;
-use App\Http\Requests\ValidateAvatarRequest;
-use App\Services\SaveAvatarServices;
-use Illuminate\Http\Request;
 use App\Services\RegistrationUserService;
 
 use App\Http\Controllers\Controller;
