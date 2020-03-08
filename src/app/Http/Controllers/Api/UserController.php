@@ -60,8 +60,12 @@ class UserController extends Controller
     {
         return response()->json($musics->getAllMusic(), 200);
     }
-    public function saveMusic(ValidateMusicRequest $request, MusicServices $musics){
-        $musics->saveMusic($request);
+
+    public function saveMusic(ValidateMusicRequest $request, MusicServices $musics)
+    {
+        return response()->json([
+            'status' => $musics->saveMusic($request)
+        ], 200);
     }
 
 }

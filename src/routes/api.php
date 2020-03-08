@@ -27,6 +27,7 @@ Route::get('/user','Api\ValidationController@store')->name('userValid');
 Route::get('/GetUserValid','Api\AuthoriseController@authGet')->name('GetUserValid');
 Route::post('/registration','Api\ValidationController@save')->name('registrationUser');
 Route::post('/authorise','Api\AuthoriseController@auth')->name('authoriseUser');
+
 Route::middleware('auth_api')->group(function (){
     Route::get('/userGet','Api\UserController@getUser')->name('userGet');
     Route::delete('/deleteNews','Api\UserController@deleteNews')->name('deleteNews');

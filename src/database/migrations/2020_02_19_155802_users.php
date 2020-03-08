@@ -47,9 +47,9 @@ class Users extends Migration
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
         Schema::create('all_music', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
+            $table->integer('music_id')->autoIncrement();
             $table->string('url',600);
-            $table->string('title',600);
+            $table->string('title',600)->unique();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
 

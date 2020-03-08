@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Http\Requests\ValidateMusicRequest;
 use App\Model\AllMusicModel;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class MusicServices
 {
@@ -22,19 +23,31 @@ class MusicServices
         }
         return $musics;
     }
-    public function saveMusic(ValidateMusicRequest $music){
 
-
-        foreach ($music->audio as $key=>$value){
-            $path = $value->storeAs("public/uploads/test",$_FILES['audio']['name'][$key]);
-            $title = str_replace('public/uploads/test/', '', $path);
-
-            var_dump($title);
-            (new AllMusicModel([
-                'url' => $path,
-                'title'=>$title = str_replace('.mp3', '', $path)
-            ]))->save();
+    public function saveMusic(ValidateMusicRequest $music)
+    {
+        $status = [];
+        foreach ($music->audio as $key => $value) {
+            $title = str_replace('.mp3', '', $_FILES['audio']['name'][$key]);
+            if (!$this->validateTitle($title)) {
+                $path = $value->storeAs("/public/uploads/musicAll", $_FILES['audio']['name'][$key]);
+                $path = str_replace('public', 'storage', $path);
+                (new AllMusicModel([
+                    'url' => $path,
+                    'title' => $title
+                ]))->save();
+                $status['success'][] = $title . " - save";
+            } else {
+                $status['error'][] = $title . " -this track has already been recorded";
+            }
         }
+        return $status;
+
+    }
+
+    public function validateTitle(string $title)
+    {
+        return AllMusicModel::where('title', $title)->exists();
 
     }
 }
