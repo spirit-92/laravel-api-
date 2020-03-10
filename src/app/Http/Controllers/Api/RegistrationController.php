@@ -8,26 +8,9 @@ use App\Services\RegistrationUserService;
 
 use App\Http\Controllers\Controller;
 
-class ValidationController extends Controller
+class RegistrationController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @param AddUserValidate $request
-     * @param RegistrationUserService $user
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     */
     public function save(AddUserValidate $request, RegistrationUserService $user)
     {
         return  $user->registerUser($request);
