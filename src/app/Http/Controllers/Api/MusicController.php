@@ -45,4 +45,7 @@ class MusicController extends Controller
     public function deleteFavoriteMusic(Request $request, MusicServices $music){
      return   $music->deleteMusic($request);
     }
+    public function deleteMusic(ValidateTitleMusicReguest $request ,MusicServices $music){
+      return  $music->deleteMusicAdmin($request);
+    }
 }

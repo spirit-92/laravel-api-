@@ -74,29 +74,45 @@ class MusicServices
         $giveMusic = [];
         $user_id = TokenModel::whereToken($token)->first()->user;
         $musicUser = UserMusicModel::where('user_id', $user_id['user_id'])->get();
-        foreach ($musicUser as $music){
+        foreach ($musicUser as $music) {
             $giveMusic[] = [
                 'title' => $music->music['title'],
                 'link' => $music->music['url']
             ];
         }
-       return $giveMusic;
+        return $giveMusic;
     }
-    public function deleteMusic(Request $request){
+
+    public function deleteMusic(Request $request)
+    {
         $user_id = TokenModel::whereToken($request->header('token'))->first()->user;
-        $music_id = AllMusicModel::where('title',$request->title)->first();
+        $music_id = AllMusicModel::where('title', $request->title)->first();
         $statusDelete = UserMusicModel::
         where('user_id', $user_id['user_id'])->
         where('music_id', $music_id['music_id'])->
         delete();
-        if ($statusDelete){
+        if ($statusDelete) {
             return response()->json([
                 'status' => 'success delete'
             ], 200);
-        }else{
+        } else {
             return response()->json([
                 'status' => 'error delete music'
             ], 400);
         }
+    }
+
+    public function deleteMusicAdmin(ValidateTitleMusicReguest $request)
+    {
+        $musicDId = AllMusicModel::where('title', $request->title)->first();
+        $deleteMusicUser = UserMusicModel::where('music_id', $musicDId['music_id'])->get();
+        foreach ($deleteMusicUser as $delete) {
+            $delete->delete();
+        }
+        AllMusicModel::where('music_id', $musicDId['music_id'])->delete();
+        unlink(storage_path('app/public/uploads/musicAll/'.$request->title.'.mp3'));
+        return response()->json([
+            'status' => 'delete success'
+        ], 200);
     }
 }

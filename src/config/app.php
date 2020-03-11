@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'lifetimeTokenMin'=>10,
+    'lifetimeTokenMin'=>10000,
     /*
     |--------------------------------------------------------------------------
     | Application Name

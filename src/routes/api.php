@@ -27,4 +27,5 @@ Route::middleware('auth_api')->group(function (){
     Route::post('/saveUserMusic','Api\MusicController@saveUserMusic')->name('saveUserMusic');
     Route::get('/getFavoriteMusic','Api\MusicController@getFavoriteMusic')->name('getFavoriteMusic');
     Route::delete('/deleteFavoriteMusic','Api\MusicController@deleteFavoriteMusic')->name('deleteFavoriteMusic');
+    Route::delete('/deleteMusic','Api\MusicController@deleteMusic')->name('deleteMusic');
 });
