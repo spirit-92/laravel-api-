@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 
-
-class RegistrationValidate extends FormRequest
+class PhilosophyFavoriteValidate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +24,8 @@ class RegistrationValidate extends FormRequest
     public function rules()
     {
         return [
-            'password'=>'nullable|min:6',
-            'email'=>'nullable|email|unique:users,email'
+            'philosophy_id'=>'required|exists:all_philosophy',
+            'id'=>'exists:user_philosophy,philosophy_id',
         ];
     }
 }

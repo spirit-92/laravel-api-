@@ -24,10 +24,10 @@ class AddUserValidate extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:users,user_name',
+            'name' => 'required',
             'password' => 'required|min:6',
             'email' => 'required|email|unique:users,email',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
 }
