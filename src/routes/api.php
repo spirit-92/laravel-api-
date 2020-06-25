@@ -17,6 +17,7 @@ Route::get('/user','Api\RegistrationController@store')->name('userValid');
 Route::get('/GetUserValid','Api\AuthoriseController@authGet')->name('GetUserValid');
 Route::post('/registration','Api\RegistrationController@save')->name('registrationUser');
 Route::post('/authorise','Api\AuthoriseController@auth')->name('authoriseUser');
+Route::get('/statisticUser', 'Api\StatisticUserController@getUser')->name('statisticUser');
 
 Route::middleware('auth_api')->group(function (){
     //auth

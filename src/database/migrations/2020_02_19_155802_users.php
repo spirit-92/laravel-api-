@@ -13,6 +13,17 @@ class Users extends Migration
      */
     public function up()
     {
+        Schema::create('statistic_user', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('gender');
+            $table->string('ip_address');
+            $table->integer('total_clicks');
+            $table->integer('page_views');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+        });
         Schema::create('token', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->integer('user_id')->index();
