@@ -4,11 +4,14 @@
 namespace App\Services;
 
 
+use App\Model\PageViews;
 use App\Model\StatisticUser;
+use App\Model\TotalClicks;
+use DateTime;
 
 class UserStatisticServices
 {
-    function getUserStatistic($page)
+    function getUsersStatistic($page)
     {
         $users = StatisticUser::all()->forPage($page, 16);
         $countUser = round(ceil(StatisticUser::all()->count() / 16));
@@ -31,4 +34,23 @@ class UserStatisticServices
         ], 200);
     }
 
+    function getUserStatistic($userId)
+    {
+        $getUser= [];
+        $user = StatisticUser::where('id', $userId)->first();
+        $totalClicks = TotalClicks::where('clicks_id', $user->id)->get();
+        $totalViews = PageViews::where('page_id',$user->id)->get();
+        foreach ($totalClicks as $click){
+            $date = new DateTime($click->created_at);
+            $getUser['month'][]=$date->format('M');
+            $getUser['totalClicks'][]= $click->clicks;
+        }
+        foreach ($totalViews as $view){
+            $getUser['totalViews'][]= $view->views;
+        }
+        return response()->json([
+            'user' => $user,
+            'statistic'=>$getUser
+        ], 200);
+    }
 }

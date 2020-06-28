@@ -84,6 +84,8 @@
       <path value="$PROJECT_DIR$/src/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/src/vendor/swiftmailer/swiftmailer" />
       <path value="$PROJECT_DIR$/src/vendor/beyondcode/laravel-dump-server" />
+      <path value="$PROJECT_DIR$/src/vendor/barryvdh/laravel-cors" />
+      <path value="$PROJECT_DIR$/src/vendor/asm89/stack-cors" />
     </include_path>
   </component>
   <component name="PhpUnit">

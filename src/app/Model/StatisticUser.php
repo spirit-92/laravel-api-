@@ -8,5 +8,7 @@ class StatisticUser extends Model
 {
     protected $table = 'statistic_user';
     protected $fillable = ['first_name','last_name','email','gender','ip_address','total_clicks','page_views'];
+    public $timestamps = false;
+    public $updated_at = false;
 
 }

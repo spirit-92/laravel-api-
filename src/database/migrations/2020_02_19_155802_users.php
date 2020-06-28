@@ -20,10 +20,23 @@ class Users extends Migration
             $table->string('email');
             $table->string('gender');
             $table->string('ip_address');
-            $table->integer('total_clicks');
-            $table->integer('page_views');
+            $table->integer('total_clicks')->nullable();
+            $table->integer('page_views')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
+        Schema::create('totalClicks', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->integer('clicks_id')->index();
+            $table->integer('clicks');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+        });
+        Schema::create('pageViews', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
+            $table->integer('page_id')->index();
+            $table->integer('views');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+        });
+
         Schema::create('token', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->integer('user_id')->index();
@@ -85,9 +98,19 @@ class Users extends Migration
         });
 
 
+        Schema::table('totalClicks', function ($table) {
+            $table->foreign('clicks_id')->references('id')->on('statistic_user');
+        });
+        Schema::table('pageViews', function ($table) {
+            $table->foreign('page_id')->references('id')->on('statistic_user');
+        });
+
+
         Schema::table('user_music', function ($table) {
             $table->foreign('user_id')->references('user_id')->on('users');
         });
+
+
         Schema::table('user_music', function ($table) {
             $table->foreign('music_id')->references('music_id')->on('all_music');
         });
