@@ -19,7 +19,7 @@ Route::post('/registration','Api\RegistrationController@save')->name('registrati
 Route::post('/authorise','Api\AuthoriseController@auth')->name('authoriseUser');
 Route::get('/statisticUsers', 'Api\StatisticUserController@getUsers')->name('statisticUsers');
 Route::get('/statisticUser', 'Api\StatisticUserController@getUser')->name('statisticUser');
-
+Route::get('/infoUser', 'Api\UserInfoController@getUserInfo')->name('infoUser');
 Route::middleware('auth_api')->group(function (){
     //auth
     Route::get('/getAllUser','Api\UserController@getAllUser')->name('getAllUser');
