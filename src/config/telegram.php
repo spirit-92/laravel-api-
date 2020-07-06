@@ -33,12 +33,12 @@ return [
     */
     'bots'                         => [
         'mybot' => [
-            'username'            => 'Summary_Panasenko_Dima_Bot',
+            'username'            => 'TelegramBot',
             'token'               => env('TELEGRAM_BOT_TOKEN', '1291105227:AAEl_xYiTPeRJ3p_Tv6YyVfWXE23se29lT8'),
-            'certificate_path'    => env('TELEGRAM_CERTIFICATE_PATH', 'spirit.pp.ua/telegramBot'),
+            'certificate_path'    => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
             'webhook_url'         => env('TELEGRAM_WEBHOOK_URL', 'https://spirit.pp.ua/telegramBot'),
             'commands'            => [
-//                Acme\Project\Commands\MyTelegramBot\BotCommand::class
+                //Acme\Project\Commands\MyTelegramBot\BotCommand::class
             ],
         ],
 
@@ -57,7 +57,7 @@ return [
     | your default bot for regular use.
     |
     */
-    'default'                      => 'Summary_Panasenko_Dima_Bot',
+    'default'                      => 'mybot',
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
     | Possible Values: (Boolean) "true" OR "false"
     |
     */
-    'async_requests'               => env('TELEGRAM_ASYNC_REQUESTS', true),
+    'async_requests'               => env('TELEGRAM_ASYNC_REQUESTS', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -201,5 +201,4 @@ return [
         // 'stop' => Acme\Project\Commands\StopCommand::class,
         // 'status' => Acme\Project\Commands\StatusCommand::class,
     ],
-
 ];
