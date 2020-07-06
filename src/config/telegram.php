@@ -57,7 +57,7 @@ return [
     | your default bot for regular use.
     |
     */
-    'default'                      => 'mybot',
+    'default'                      => 'Summary_Panasenko_Dima_Bot',
 
     /*
     |--------------------------------------------------------------------------
