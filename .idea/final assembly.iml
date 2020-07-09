@@ -6,8 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/src/app" isTestSource="false" packagePrefix="App\" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/asm89/stack-cors" />
-      <excludeFolder url="file://$MODULE_DIR$/src/vendor/barryvdh/laravel-cors" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/beyondcode/laravel-dump-server" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/classpreloader/classpreloader" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
@@ -21,7 +19,11 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/irazasyed/telegram-bot-sdk" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/jakub-onderka/php-console-highlighter" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/jeremeamia/superclosure" />
@@ -53,9 +55,11 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit-mock-objects" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/sebastian/comparator" />
@@ -86,6 +90,7 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php56" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-php80" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-util" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/routing" />
